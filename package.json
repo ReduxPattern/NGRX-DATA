@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "ng serve -o --port 5000",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -18,6 +19,11 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@ngrx/data": "^13.0.1",
+    "@ngrx/effects": "^13.0.1",
+    "@ngrx/entity": "^13.0.1",
+    "@ngrx/store": "^13.0.1",
+    "@ngrx/store-devtools": "^13.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
