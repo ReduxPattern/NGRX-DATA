@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { PostService } from '../post.service';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-add-post',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostComponent implements OnInit {
 
-  constructor() { }
+  addPostForm: FormGroup;
 
-  ngOnInit(): void {
+  constructor( private postService: PostService, private router: Router) {
+    this.addPostForm = new FormGroup({});
   }
 
+  ngOnInit(): void {
+    this.addPostForm.setControl('title', new FormControl(null));
+    this.addPostForm.setControl('description', new FormControl(null));
+  }
+
+  onAddPost(): void {
+    const post: Post = this.addPostForm.value;
+    this.postService.add(post).subscribe((data: Post) => {
+      this.router.navigate(['/posts']);
+    });
+  }
 }

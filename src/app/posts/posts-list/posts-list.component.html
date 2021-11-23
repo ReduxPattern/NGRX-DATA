@@ -1,9 +1,17 @@
+<div>
+    <h3>Posts List</h3>
+    <hr />
+</div>
+<div>
+    <a [routerLink]="['/posts','add']">Add Post</a>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +19,14 @@
             <td>{{post.id}}</td>
             <td>{{post.title}}</td>
             <td>{{post.description}}</td>
+            <td>
+                <button type="button" [routerLink]="['/posts', 'edit', post.id]" class="btn btn-primary mx-1">Edit
+                    Post</button>
+                <button type="button" class="btn btn-primary mx-1" (click)="onDeletePost($event, post.id)">Delete
+                    Post</button>
+                <button type="button" class="btn btn-primary mx-1" [routerLink]="['/posts', 'details', post.id]">View
+                    Details</button>
+            </td>
         </tr>
     </tbody>
 </table>

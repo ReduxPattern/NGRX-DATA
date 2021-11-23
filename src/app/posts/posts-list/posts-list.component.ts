@@ -17,7 +17,12 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts$ = this.postService.getAll();
+    this.posts$ = this.postService.entities$;
+  }
+
+  onDeletePost(event: Event, id: string | undefined) {
+    event.preventDefault();
+    this.postService.delete(id ? id : '');
   }
 
 }

@@ -1,1 +1,19 @@
-<p>edit-post works!</p>
+<div>
+    <h3>Edit Post</h3>
+    <hr/>
+</div>
+<div>
+    <form [formGroup]="editPostForm" (ngSubmit)="onEditPost()">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" id="title" class="form-control" formControlName="title">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control" formControlName="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Update Post</button>
+        </div>
+    </form>
+</div>
